@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+ <html lang="en"> 
+<head>
+	<meta charset="utf-8">
+	<title>Music Time</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+<div class="container">
+	<section id="content">
+		<form action="" method="post">
+			<h1>Music Time</h1>
+			<h2>Login Here!</h2>
+			<br>
+			<div>
+				<label for="email"><b>Email</b></label>
+				<input type="text" placeholder="Email" required="" name="email" value="{{request.form.email }}" />
+			</div>
+			</br>
+			<br>
+			<div>
+				<label for="password"><b>Password</b></label>
+				<input type="text" placeholder="Password" required="" name="password" value="{{request.form.password }}" />
+			</div>
+			</br>
+			<br>
+			<div>
+				<input class="btn btn-default" type="submit" value="Login" /> 
+				<br></br>
+				<a href="{{url_for('register')}}">Register</a>
+			</div>
+			</br>
+			{% if error %}
+				<p class="error"><strong>Error:</strong> {{ error }}
+			{% endif %}
+		
+		</form><!-- form -->
+	
+	</section><!-- content -->
+</div><!-- container -->
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+ <html lang="en"> 
+<head>
+	<meta charset="utf-8">
+	<title>PMusic Time</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+<div class="container">
+	<section id="content">
+		<form action="" method="post" enctype="multipart/form-data">
+			<h1>Music Time</h1>
+			<br>
+			<h2>Register Here!</h2>
+			</br>
+			<br>
+			<div>
+				<label for="email"><b>Email</b></label>
+				<input type="text" placeholder="Email" required="" name="email" value="{{request.form.email }}" />
+			</div>
+			</br>
+			<br>
+			<div>
+				<label for="username"><b>Username</b></label>
+				<input type="text" placeholder="Username" required="" name="username" value="{{request.form.username }}" />
+			</div>
+			</br>
+			<br>
+			<div>
+				<label for="password"><b>Password</b></label>
+				<input type="password" placeholder="Password" required="" name="password" value="{{request.form.password }}" />
+			</div>
+			</br>
+			<br>
+			<div>
+				<input class="btn btn-default" type="submit" value="Register" />
+			</div>
+			</br>
+			{% if error %}
+				<p class="error"><strong>Error:</strong> {{ error }}
+			{% endif %}
+		
+		</form><!-- form -->
+	
+	</section><!-- content -->
+</div><!-- container -->
+</body>
+</html>

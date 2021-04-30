@@ -1,0 +1,64 @@
+body {
+  font-family: "helvetica", sans-serif;
+  text-align: center;
+}
+
+ .iconDetails {
+ margin-left:2%;
+float:right; 
+height:500px;
+width:500px; 
+} 
+
+.row {
+	display: table-row;
+}
+
+.row:nth-child(1){
+	height: 10%;
+}
+
+.row:nth-child(2){
+	height: 90%;
+}
+
+body {
+  font-family: Arial;
+  padding: 20px;
+  background: #f1f1f1;
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {
+  float: left;
+  width: 50%;
+}
+
+/* Right column */
+.rightcolumn {
+  float: left;
+  width: 50%;
+  padding-left: 20px;
+}
+
+/* Fake image */
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Add a card effect for articles */
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}

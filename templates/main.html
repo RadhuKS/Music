@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+ <html lang="en"> 
+<head>
+	<meta charset="utf-8">
+	<title>Music Time</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+<div class="row">
+	<section id="content">
+		<form action="" method="post" enctype="multipart/form-data">
+			<div class="main">
+				<h1>Music Time!</h1>
+				<h2>{{ username }}</h2>
+				<a href="{{ url_for('logout') }}">Logout</a>
+			</div>
+		</form><!-- form -->
+	
+	</section><!-- content -->
+</div><!-- container -->
+</body>
+
+<div class="row">
+	<div class="column">
+		<div class="card">
+			<section id="content">
+				<form action="" method="post" enctype="multipart/form-data">
+					<div>
+						<h1>Subscribed!</h1>
+						{% for d in sdata %} 
+							<p><b>Title:</b> {{ d['title'] }}</p> 
+							<p><b>Artist:</b> {{ d['artist'] }}</p> 
+							<p><b>Year:</b> {{ d['year'] }}</p> 
+							<b>Image:</b>
+							{% set imgurl = url ~ d['artist'].title().replace(" ", "") ~ '.jpg'%}
+							<img src={{imgurl}} id = "iconDetails" width=80 height=80 > 
+
+							<form action="" method="post" enctype="multipart/form-data">
+									<input type="hidden" required="" name="title" value="{{ d['title'] }}" />
+									<br>
+									<button type="submit" name="remove">Remove</button>
+								<br>
+							</form>
+							
+							<p>-------------------------------------------------------------------------------------------------------------------------------------</p>
+						{% endfor %}
+					</div>
+				</form>
+	
+			</section>
+		</div>
+	</div>
+	<div class="column">
+		<div class="card">
+			<section id="content">
+				<form action="" method="post" enctype="multipart/form-data">
+					<div>
+						<h1>Search!</h1>
+						<br>
+						<div>
+							<label for="title"><b>Title</b></label>
+							<input type="text" placeholder="Title" name="title" value="{{request.form.title }}" />
+						</div>
+						</br>
+						<br>
+						<div>
+							<label for="year"><b>Year</b></label>
+							<input type="text" placeholder="Year" name="year" value="{{request.form.year }}" />
+						</div>
+						</br>
+						<br>
+						<div>
+							<label for="artist"><b>Artist</b></label>
+							<input type="text" placeholder="Artist" name="artist" value="{{request.form.artist }}" />
+						</div>
+						</br>
+						<br>
+						<div>
+							<button type="submit" name="query">Query</button>
+						</div>
+						</br>
+					</div>
+					{% if error %}
+						<p class="error"><strong>Error:</strong> {{ error }} </p>
+					{% endif %}
+				
+				</form><!-- form -->
+				
+					{% if data != " " %}
+						{% for d in data %}
+								<p>Title: {{d['title']}} </p>
+								{% set imgurl = url ~ d['artist'].title().replace(" ", "") ~ '.jpg'%}
+								<img src={{imgurl}} id = "iconDetails" width=80 height=80 > 
+								<p>Artist: {{d['artist']}} </p>
+								<p>Year: {{d['year']}} </p>
+								<form action="" method="post" enctype="multipart/form-data">
+									<input type="hidden" required="" name="title" value="{{ d['title'] }}" />
+									<button type="submit" name="subscribe">Subscribe</button>
+								<br>
+								</form>
+
+								<p>-------------------------------------------------------------------------------------------------------------------------------------</p>
+						{% endfor %}
+					{% endif %}	
+				
+			</section><!-- content -->
+		</div>
+	</div>
+</div>
+
+<!-- </body> -->
+</html>
