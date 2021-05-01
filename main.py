@@ -5,7 +5,7 @@ import requests
 
 from flask import abort, Flask, render_template, redirect, request, session, url_for
 from boto3.dynamodb.conditions import Key, Attr
-from pprint import pprint
+
 
 app = Flask(__name__)
 app.secret_key = "super secret key"
@@ -183,7 +183,6 @@ def register():
         else:
             put_response = store_userdetails( email, username, password )     
             print("New user added successfully")
-            pprint(put_response, sort_dicts=False)
 
             return redirect(url_for('login'))
     
@@ -234,7 +233,6 @@ def main():
 
         add_response = store_subscribe(put_response, username)
         print("New song subscribed successfully")
-        pprint(put_response, sort_dicts=False)
         return redirect(url_for('main'))
 
     if request.method == 'POST' and 'remove' in request.form:
@@ -243,7 +241,7 @@ def main():
 
         del_response = delete_subscribe(username, title)
         print("Subscription removed successfully")
-        pprint(del_response, sort_dicts=False)
+        
         return redirect(url_for('main'))
 
     
