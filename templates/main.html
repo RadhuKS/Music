@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Music Time</title>
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" >
 </head>
 <body>
 <div class="row">
@@ -20,7 +20,7 @@
 </div><!-- container -->
 </body>
 
-<div class="row">
+<!-- <div class="row"> -->
 	<div class="column">
 		<div class="card">
 			<section id="content">
@@ -37,7 +37,7 @@
 
 							<form action="" method="post" enctype="multipart/form-data">
 									<input type="hidden" required="" name="title" value="{{ d['title'] }}" />
-									<br>
+									<br></br>
 									<button type="submit" name="remove">Remove</button>
 								<br>
 							</form>
@@ -50,6 +50,7 @@
 			</section>
 		</div>
 	</div>
+
 	<div class="column">
 		<div class="card">
 			<section id="content">
@@ -106,7 +107,7 @@
 			</section><!-- content -->
 		</div>
 	</div>
-</div>
+<!-- </div> -->
 
 <!-- </body> -->
 </html>
